@@ -1,4 +1,4 @@
-import math_problem
+from .math_problem import *
 
 def bubble_sort(nums:list):
     ##Bubble Sort

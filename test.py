@@ -1,4 +1,3 @@
 import lesson_code
-n = 10000
-r = lesson_code.fibonacci_sequence(n)
-print(r)
+print(lesson_code.bubble_sort([3,2,1]))
+print(lesson_code.right_angle(3,4))
