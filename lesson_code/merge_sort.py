@@ -2,19 +2,6 @@ import math
 left = [10, 30, 40, 70]
 right = [20, 50, 60, 90]
 
-result = []
-
-while len(left) > 0 and len(right) > 0:
-    if left[0] < right[0]:
-        result.append(left.pop(0))
-    else:
-        result.append(right.pop(0))
-if len(left) > 0:
-    result += left
-else:
-    result += right
-print(result)
-
 
 def merge(a: list, b: list):
     result = []
