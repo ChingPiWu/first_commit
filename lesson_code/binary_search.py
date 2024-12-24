@@ -23,4 +23,4 @@ if __name__ == "__main__":
     print(nums)
     target = random.choice(nums)
     print("Target:", target)
-    print("Find target at : ", binary_serch(nums, target))
+    print("Find target at: ", binary_serch(nums, target))
