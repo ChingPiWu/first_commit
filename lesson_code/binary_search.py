@@ -1,12 +1,5 @@
+def binary_serch(nums, target):
 
-import random
-nums = random.choices(range(100), k=10)
-nums = sorted(nums)
-print(nums)
-
-
-def binary_serch(nums):
-    target = random.choice(nums)
     start = 0
     end = len(nums)-1
 
@@ -20,3 +13,14 @@ def binary_serch(nums):
         else:
             return ("Find target at ", mid)
     return ("Not Found")
+
+
+if __name__ == "__main__":
+
+    import random
+    nums = random.choices(range(100), k=10)
+    nums = sorted(nums)
+    print(nums)
+    target = random.choice(nums)
+    print("Target:", target)
+    print("Find target at : ", binary_serch(nums, target))

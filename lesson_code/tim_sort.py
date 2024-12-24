@@ -19,7 +19,7 @@ def tim_sort(nums):
 if __name__ == '__main__':
     import random
     import time
-    nums = random.choices(range(10000, k=1024))
+    nums = random.choices(range(10000))
     result = tim_sort(nums)
 
     assert result == sorted(nums), print('Wrong answers')
