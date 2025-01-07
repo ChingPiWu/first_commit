@@ -1,15 +1,19 @@
 from openai import OpenAI
 client = OpenAI()
 
-completion = client.chat.completions.create(
-    model="gpt-4o-mini",
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {
-            "role": "user",
-            "content": "Write a haiku about recursion in programming."
-        }
-    ]
-)
 
-print(completion.choices[0].message.content)
+def complete_chat(user_message, pre_prompt="你是一位公平公正的記者，請幫我摘要30字以內的大綱"):
+    completion = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system",
+             "content": pre_prompt
+             },
+            {
+                "role": "user",
+                "content": user_message
+            }
+        ]
+    )
+
+    return completion.choices[0].message.content
