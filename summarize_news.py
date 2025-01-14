@@ -1,7 +1,7 @@
 import pandas as pd
 from openai_chatgpt import complete_chat
 
-news = pd.read_csv('news.csv')
+# news = pd.read_csv('news.csv')
 # print(news.head())
 
 # Sol 1:依照每一行去處理
@@ -12,18 +12,19 @@ news = pd.read_csv('news.csv')
 # Sol 2:
 
 
-def summarize_google_news():
-    groups = news.groupby('topic_id')
+def summarize_google_news(csv_file="news.csv", max_topic=5):
+    news = pd.read_csv(csv_file)
+    groups = news.groupby('topic_id')  # 依照 topic_id 分組 = 同 topic_id 為一組
     summarizations = list()
     for gid, group in groups:
-        # print(list(group['title']), '\n')
         temp = list(group['title'])
-        message = "\n".join(temp)
-        # print(message, '\n')
-
+        message = "\n".join(temp)  # list -> string
         summarization = complete_chat(message)
-        print("Summarization:", summarization, '\n')
+        print("Summarization = ", summarization, '\n')
         summarizations.append(summarization)
+        if gid >= max_topic-1:
+            print('Summarization Done.')
+            break
     return summarizations
 
 
